@@ -1,0 +1,14 @@
+#parent {
+    margin: auto;
+    width: 30%;
+    border:solid;
+    padding: 20px;
+    border-radius: 25px;
+    color: white;
+    background-color: purple;
+
+}
+
+body {
+    background-color: black;
+}
