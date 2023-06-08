@@ -1,0 +1,98 @@
+<form method="POST" class="login-form" style="margin-top: 1550px;margin-bottom: 50px;">
+    <div class="form-title">
+      Update User
+    </div>
+    
+  
+  
+    <div class="form-input">
+      <label for="dept">User Ids</label>
+  
+        <?php
+          $query = "SELECT id FROM users";
+          $result = $conn->query($query);
+          
+          // Build the HTML select element with options
+          $options = '';
+          while ($row = $result->fetch_assoc()) {
+              $options .= '<option value="' . $row['id'] . '">' . $row['id'] . '</option>';
+          }
+          
+          // Output the HTML select element
+          echo '<select id="id" name="id">' . $options . '</select>';
+        ?>
+      <span class="error_mesg" id="dept_err"></span>
+  
+    </div>
+    <div class="form-input">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required min="6">
+      <span class="error_mesg" id="username_err"></span>
+    </div>
+    <div class="form-input">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required inputmode="email">
+      <span class="error_mesg" id="email_err"></span>
+  
+    </div>
+    <div class="form-input">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      <span class="error_mesg" id="pass_err"></span>
+    </div>
+    <div class="form-input">
+      <label for="confpassword">Confirm Password</label>
+      <input type="password" id="confpassword" required>
+      <span class="error_mesg" id="confpass_err"></span>
+  
+    </div>
+    <div class="form-input">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" required>
+      <span class="error_mesg" id="dob_err"></span>
+  
+    </div>
+    <div class="form-input">
+      <label for="tel">Mobile No</label>
+      <input type="tel" id="tel" value="+91" name="mobile" required inputmode="tel" onchange="mobileChange()"> 
+      <span class="error_mesg" id="tel_err"></span>
+  
+    </div>
+    <div class="form-input">
+      <label for="gender">Gender</label>
+      <p style="display: flex; flex-direction: row;align-items: center;justify-content: left;width: 100px;">
+        <input type="radio" id="male" name="gender" value="Male">Male
+      </p>
+      <p style="display: flex; flex-direction: row;align-items: center;justify-content: left;width: 120px;">
+        <input type="radio" id="female" name="gender" value="Female">Female
+      </p>
+      <span class="error_mesg" id="gender_err"></span>
+  
+    </div>
+  
+    <div class="form-input">
+      <label for="dept">Department</label>
+      <select name="dept" id="dept">
+        <option value="" disabled selected>Select Department</option>
+        <option value="IT">IT</option>
+        <option value="COMP">COMP</option>
+        <option value="ENTC">ENTC</option>
+        <option value="AIDS">AIDS</option>
+  
+      </select>
+      <span class="error_mesg" id="dept_err"></span>
+  
+    </div>
+    <div class="form-input">
+      <label for="address">Address</label>
+      <textarea name="address" id="address" cols="10" rows="10" style="width: 100%;" draggable="false" minlength="10"></textarea>
+      <span class="error_mesg" id="addr_err"></span>
+  
+    </div>
+    
+  
+    <div class="form-input">
+      <button type="submit" name="update" id="login-btn">Update</button>
+    </div>
+  </form>
+  
